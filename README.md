@@ -17,15 +17,15 @@ Small script to install nethunter
 
 # Run:
 
-+--------------------------------------------------------------------------------+
+
 |        Command       |                  destination                            |
-+--------------------------------------------------------------------------------+
+|----------------------|---------------------------------------------------------|
 | nethunter            | start Kali NetHunter command line interface             |
 | nethunter -r         | start Kali NetHunter command line interface (root)      |
 | nethunter kex passwd | Configure the KeX password (only needed before 1st use) |
 | nethunter kex &      | start Kali NetHunter Desktop Experience                 |
 | nethunter kex stop   | stop Kali NetHunter Desktop Experiencce                 |
-+--------------------------------------------------------------------------------+
+
 
 # More Info:
 
