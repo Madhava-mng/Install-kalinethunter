@@ -44,9 +44,9 @@ Small script to install nethunter
 
 * Before December 2019, Kali NetHunter was only available for selected Android devices. Installing Kali NetHunter required a device that:
 
-[-] is rooted
-[-] has a custom recovery
-[-] had a kernel built especially for Kali NetHunter
+1 is rooted
+2 has a custom recovery
+3 had a kernel built especially for Kali NetHunter
 
 * In December 2019, "Kali NetHunter Lite" and "Kali NetHunter Rootless" editions were released to allow users of devices for which no NetHunter specific kernels were available, and users of devices that are not rooted, to install Kali NetHunter with a reduced set of functionality.
 
