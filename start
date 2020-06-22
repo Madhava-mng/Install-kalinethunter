@@ -1,0 +1,99 @@
+#!/usr/bin/bash
+
+function ok(){
+	printf "\033[32;1mOk\033[0m\n"
+}
+
+function check_wget(){
+	printf "checking for package wget ...."
+	if [ -f /data/data/com.termux/files/usr/bin/wget ];then
+		ok
+	else
+		printf "\033[33;m1Installing\033[0m\n"
+		pkg install wget
+		check_wget
+
+	fi
+}
+
+function Setup_Storage(){
+	printf "checking for storage access ...."
+
+	if [ -d $HOME/storage ];then
+		ok
+	else
+		printf "\033[33;1mproceed\033[0m\n"
+		termux-setup-storage
+		sleep 3
+		if [ -d $HOME/storage ];then
+			printf "\033[33;1mThis process need storage access to store data\033[0m\n"
+			Setup_Storage
+		fi
+
+	fi
+}
+
+function check_Network(){
+	printf "checking for Network ...."
+	wget -q --spider http://google.com
+
+	if [ $? -eq 0 ];
+	then
+		ok
+	else
+		printf "\033[31;mFailed\033[0m\n"
+		printf "\033[33m-Make sure you are connected to Network and\033[0m [\033[32;1mPressEnter\033[0m]\r"
+		read _
+		check_Network
+
+	fi
+}
+
+function process(){
+	cd $HOME
+	wget -O install-nethunter-termux https://offs.ec/2MceZWr
+	chmod +x install-nethunter-termux
+	printf "Mode of '\033[32;1minstall-nethunter-termux\033[0m' is changed to exe\n"
+	printf "\033[32;1mInstalling kali-arm64.tar.xz....\033[0m"
+	./install-nethunter-termux || bash install-nethunter-termux
+}
+
+function banner(){
+	printf "\033[32;1m
++--------------------------------------------------------------------------------+
+| 	 \033[31;1mCommand\033[32;1m       |                      \033[31;1m destination\033[32;1m                       |
++--------------------------------------------------------------------------------+
+| nethunter	       | start Kali NetHunter command line interface             |
+| nethunter -r         | start Kali NetHunter command line interface (root)      |
+| nethunter kex passwd | Configure the KeX password (only needed before 1st use) |
+| nethunter kex &      | start Kali NetHunter Desktop Experience                 |
+| nethunter kex stop   | stop Kali NetHunter Desktop Experiencce                 |
++--------------------------------------------------------------------------------+
+\033[0m"
+}
+
+function check_again(){
+	if [ -d $HOME/kali-arm64 ];then
+		printf "\n\n\n[ \033[32;1mSucessfully Installed\033[0m ]\n\n\n"
+	else
+		if [ -f $HOME/kali-arm64.tar.xz ];then
+			tar -cjf kali-arm64.tar.xz kali-arm64 && mv kali-arm64.tar.xz
+		else
+			if [ -f $HOME/install-nethunter-termux ];then
+				./install-nethunter-termux || bash install-nethunter-termux
+			else
+				process
+				check_again
+			fi
+		fi
+	fi
+
+}
+
+
+Setup_Storage   		# check Access to storage
+check_Network			# check for Network status	
+check_wget			# check for package wget
+#process			# Install netnunter
+check_again			# Check again
+banner				# Print banner
