@@ -1,4 +1,7 @@
 Small script to install nethunter
+
+
+
 # kali nethunter:
 	
 * Kali NetHunter is a free and open-source mobile penetration testing platform for Android devices, based on Kali Linux. Kali NetHunter is available for un-rooted devices (NetHunter Rootless), for rooted devices that have a custom recovery (NetHunter Lite), and for rooted devices with custom recovery for which a NetHunter specific kernel is available (NetHunter). Official images are published by Offensive Security on their download page and are updated every quarter. NetHunter images with custom kernels are published for the most popular supported devices, such as Google Nexus, Samsung Galaxy and OnePlus. Many more models are supported, and images not published by Offensive Security can be generated using NetHunter build scripts. Kali NetHunter is maintained by a community of volunteers, and is funded by Offensive Security.
@@ -8,6 +11,14 @@ Small script to install nethunter
 * Termux (Apk) https://play.google.com/store/apps/details?id=com.termux
 * vnc (Apk) https://play.google.com/store/apps/details?id=com.realvnc.viewer.android
 * Hacker's keyboard (Apk) for easy navigation https://play.google.com/store/apps/details?id=com.termux
+
+***
+>> [Warning!] 
+>> 1. Try to understand the script you are going to execute is the good practice. 
+>> 2. Verify the link before visiting. 
+***
+
+
 
 # Installation:
 
